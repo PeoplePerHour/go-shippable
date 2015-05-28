@@ -1,0 +1,70 @@
+{
+  "repositoryProvider": "github",
+  "sourceId": "36444563",
+  "updatedDate": "2015-05-28T18:55:47.439Z",
+  "sourceRepoOwner": {
+    "site_admin": false,
+    "type": "Organization",
+    "received_events_url": null,
+    "events_url": "https://api.github.com/users/PeoplePerHour/events{/privacy}",
+    "repos_url": "https://api.github.com/users/PeoplePerHour/repos",
+    "organizations_url": "https://api.github.com/users/PeoplePerHour/orgs",
+    "subscriptions_url": "https://api.github.com/users/PeoplePerHour/subscriptions",
+    "starred_url": "https://api.github.com/users/PeoplePerHour/starred{/owner}{/repo}",
+    "gists_url": "https://api.github.com/users/PeoplePerHour/gists{/gist_id}",
+    "following_url": "https://api.github.com/users/PeoplePerHour/following{/other_user}",
+    "followers_url": "https://api.github.com/users/PeoplePerHour/followers",
+    "html_url": "https://github.com/PeoplePerHour",
+    "url": "https://api.github.com/users/PeoplePerHour",
+    "gravatar_id": "",
+    "avatar_url": "https://avatars.githubusercontent.com/u/675387?v=3",
+    "id": 675387,
+    "login": "PeoplePerHour"
+  },
+  "sourceUpdated": "2015-05-28T14:42:58.000Z",
+  "sourceCreated": "2015-05-28T14:37:24.000Z",
+  "sourcePushed": "2015-05-28T17:46:59.000Z",
+  "repositorySshUrl": "git@github.com:PeoplePerHour/shippable.git",
+  "isFork": false,
+  "isPrivateRepository": true,
+  "sourceDescription": "Shippable API client in Go",
+  "repositoryUrl": "https://api.github.com/repos/PeoplePerHour/shippable",
+  "fullName": "PeoplePerHour/shippable",
+  "name": "shippable",
+  "subscriptionId": "5480429dd46935d5fbbf5213",
+  "enabledDate": "2015-05-28T15:33:06.954Z",
+  "projectAuthorizationLastSyncStartDate": "2015-05-28T18:55:47.750Z",
+  "ownerTokenPresent": true,
+  "sourceDefaultBranch": "master",
+  "language": "go",
+  "cacheTag": 0,
+  "enabledByAccount": {
+    "id": "5480425b0f168213009d1229",
+    "identityUsedToEnable": {
+      "id": "5480425b0f168213009d122a",
+      "provider": "github",
+      "userName": "pmoust"
+    }
+  },
+  "projectAuthorizationLastSyncEndDate": "2015-05-28T19:03:33.378Z",
+  "created": "2015-05-28T15:32:54.515Z",
+  "settings": {
+    "environmentVariables": [],
+    "imageOptions": {
+      "ports": [],
+      "mounts": []
+    }
+  },
+  "deployKey": {
+    "public": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDK18REmlDsfesCSZpa+7qYAC0Lq9AFguelWwFUEKvuj99V2LgoX96PyxgqHzKlbekG5ceHmCDXENyk6mp/0wHDwnQxEPppAcSdaX/CQf81Hbxaqb3z53sXFBk3E7r6rUycFuCNK9w9FLT4oGur6iMaiVD+nT193Rso2tvBXjCxX1JBaPpKRpcLD82UBBIl5/alc7ZjHPo3owqUxokxMtSbMpA4clwUS4/QMNtuxJrjFYiNSF/GmTDY3PLNRO9nVty01uyMONUHzwgWYZ19H60PacPwDNuLAU/JrTua2Kaqhw6Y46R1v9fRv9PNOg/iahXfk6ERb9NZLIYiB1slRo1j Shippable\n"
+  },
+  "autoBuild": true,
+  "sourceSize": null,
+  "sourceWatchersCount": 0,
+  "sourceStargazersCount": 0,
+  "sourceForksCount": 1,
+  "branches": [
+    "master"
+  ],
+  "id": "556734d0edd7f2c052ff35b4"
+}

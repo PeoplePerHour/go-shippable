@@ -1,0 +1,54 @@
+[
+    {
+    "repositoryProvider": "github",
+    "sourceId": "36298993",
+    "updatedDate": "2015-05-28T14:32:50.632Z",
+    "sourceRepoOwner": {
+      "login": "pmoust",
+      "id": 2493339,
+      "avatar_url": "https://avatars.githubusercontent.com/u/2493339?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/pmoust",
+      "html_url": "https://github.com/pmoust",
+      "followers_url": "https://api.github.com/users/pmoust/followers",
+      "following_url": "https://api.github.com/users/pmoust/following{/other_user}",
+      "gists_url": "https://api.github.com/users/pmoust/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/pmoust/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/pmoust/subscriptions",
+      "organizations_url": "https://api.github.com/users/pmoust/orgs",
+      "repos_url": "https://api.github.com/users/pmoust/repos",
+      "events_url": "https://api.github.com/users/pmoust/events{/privacy}",
+      "received_events_url": null,
+      "type": "User",
+      "site_admin": false
+    },
+    "sourceUpdated": "2015-05-26T10:45:43.000Z",
+    "sourceCreated": "2015-05-26T13:50:07.000Z",
+    "sourcePushed": "2015-05-22T22:15:02.000Z",
+    "repositorySshUrl": "git@github.com:pmoust/nginx-proxy.git",
+    "isFork": true,
+    "isPrivateRepository": false,
+    "sourceDescription": "Automated nginx proxy for Docker containers using docker-gen",
+    "repositoryUrl": "https://api.github.com/repos/pmoust/nginx-proxy",
+    "fullName": "pmoust/nginx-proxy",
+    "name": "nginx-proxy",
+    "subscriptionId": "5480429dd46935d5fbbf5214",
+    "cacheTag": 0,
+    "projectAuthorizationLastSyncEndDate": "1970-01-01T00:00:00.000Z",
+    "created": "2015-05-26T14:35:13.727Z",
+    "settings": {
+      "environmentVariables": [],
+      "imageOptions": {
+        "ports": [],
+        "mounts": []
+      }
+    },
+    "autoBuild": false,
+    "sourceSize": 134,
+    "sourceWatchersCount": 0,
+    "sourceStargazersCount": 0,
+    "sourceForksCount": 0,
+    "branches": [],
+    "id": "5564844fedd7f2c052fbe82f"
+    }
+]
