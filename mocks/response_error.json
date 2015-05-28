@@ -1,0 +1,9 @@
+{
+  "id": 9999,
+  "methodName": "shipError",
+  "link": {
+    "name": "MongoError",
+    "$err": "Can't canonicalize query: BadValue unknown top level operator: $nin",
+    "code": 17287
+  }
+}
