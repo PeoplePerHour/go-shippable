@@ -6,14 +6,14 @@ import (
 )
 
 // GetProjects returns a list of projects, and some info about them
-func (p *ProjectService) GetProjects() ([]Project, *Response, error) {
+func (p *ProjectService) GetProjects() (projects *[]Project, resp *Response, err error) {
 	req, err := p.client.NewRequest("GET", "projects", nil)
 	if err != nil {
 		return nil, nil, err
 	}
-	projects := new([]Project)
-	resp, err := p.client.Do(req, projects)
-	return *projects, resp, err
+	projects = new([]Project)
+	resp, err = p.client.Do(req, projects)
+	return
 }
 
 // GetProject returns a more in-depth information about a specific
