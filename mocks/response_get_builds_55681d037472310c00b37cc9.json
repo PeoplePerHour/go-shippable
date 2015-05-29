@@ -1,0 +1,296 @@
+{
+  "status": 20,
+  "buildGroupNumber": 7,
+  "projectId": "556734d0edd7f2c052ff35b4",
+  "lastCommitShortDescription": "Merge pull request #3 from pmoust/testing\n\nmoved mocked responses to their own dir, added more tests",
+  "commitSha": "8d1c54ca65f26c07997a4abdec70eecea76b7296",
+  "commitUrl": "https://github.com/PeoplePerHour/shippable/commit/8d1c54ca65f26c07997a4abdec70eecea76b7296",
+  "baseCommitRef": "",
+  "branchHead": "master",
+  "branch": "master",
+  "beforeCommitSha": "6bf3728ebaa68f7bc9c60c66430a4ddf5b224193",
+  "compareUrl": "https://github.com/PeoplePerHour/shippable/compare/6bf3728ebaa68f7bc9c60c66430a4ddf5b224193...8d1c54ca65f26c07997a4abdec70eecea76b7296",
+  "createdByAccountId": "5480425b0f168213009d1229",
+  "language": "go",
+  "settings": {
+    "pullImageName": "shipimg/ubuntu1404_go",
+    "runCommand": "",
+    "imageId": "55080e175ab6cc1352a2bcb5",
+    "imageOptions": {
+      "privileged": false,
+      "networkMode": "bridge"
+    }
+  },
+  "imageId": "55080e175ab6cc1352a2bcb5",
+  "imageName": "shipimg/ubuntu1404_go",
+  "runCommand": "",
+  "emailOnSuccess": "change",
+  "emailOnFailure": "always",
+  "timeoutMS": 5400000,
+  "buildRunnerVersion": "1.0.0",
+  "statusMessage": "PROCESSING",
+  "shouldDecryptSecureEnvs": true,
+  "branchCoveragePercent": 0,
+  "sequenceCoveragePercent": 0,
+  "testsSkipped": 0,
+  "testsPassed": 0,
+  "testsFailed": 0,
+  "totalTests": 0,
+  "parallelizedTest": false,
+  "network": "bridge",
+  "privileged": false,
+  "shouldArchive": false,
+  "repositoryFileCount": null,
+  "repositorySize": null,
+  "updatedDate": "2015-05-29T08:02:17.601Z",
+  "createdDate": "2015-05-29T08:02:17.601Z",
+  "builds": [
+    {
+      "commitTag": "master.7.1",
+      "buildNumber": 1,
+      "status": 20,
+      "version": "1.4",
+      "jdk": null,
+      "gemfile": null,
+      "environment": "",
+      "steps": {
+        "pull": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "build": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "upload": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "commit": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        }
+      },
+      "_id": "55681d09041e890b00cc0cf2",
+      "startDate": "2015-05-29T08:00:20.857Z",
+      "consoleLogLineCount": 97,
+      "consoleLogBytes": 4606,
+      "branchCoveragePercent": 0,
+      "sequenceCoveragePercent": 0,
+      "testsSkipped": 0,
+      "testsPassed": 0,
+      "testsFailed": 0,
+      "totalTests": 0,
+      "isFailureAllowed": false,
+      "imageCommitStatusDate": "1970-01-01T00:00:00.000Z",
+      "deprovisionStatusDate": "1970-01-01T00:00:00.000Z",
+      "isSubscriptionHost": false,
+      "queuedDate": "2015-05-29T08:02:17.602Z",
+      "matrixValues": [
+        {
+          "name": "runtime",
+          "value": "1.4",
+          "_id": "55681d09041e890b00cc0cf4"
+        },
+        {
+          "name": "env",
+          "value": "",
+          "_id": "55681d09041e890b00cc0cf3"
+        }
+      ],
+      "isBuildCompleted": false,
+      "isCompleted": false,
+      "size": null
+    },
+    {
+      "commitTag": "master.7.2",
+      "buildNumber": 2,
+      "status": 30,
+      "version": "1.3",
+      "jdk": null,
+      "gemfile": null,
+      "environment": "",
+      "steps": {
+        "report": {
+          "endTime": "2015-05-29T08:03:11.889Z",
+          "startTime": "2015-05-29T08:03:10.418Z",
+          "duration": 1471,
+          "report": [
+            {
+              "time": "2015-05-29T08:03:10.418Z",
+              "status": 20
+            },
+            {
+              "time": "2015-05-29T08:03:11.889Z",
+              "status": 30
+            }
+          ]
+        },
+        "pull": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "build": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "upload": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "commit": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        }
+      },
+      "_id": "55681d09041e890b00cc0cef",
+      "startDate": "2015-05-29T08:00:10.193Z",
+      "consoleLogLineCount": 120,
+      "consoleLogBytes": 5469,
+      "endDate": "2015-05-29T08:03:13.009Z",
+      "duration": 182816,
+      "branchCoveragePercent": 0,
+      "sequenceCoveragePercent": 0,
+      "testsSkipped": 0,
+      "testsPassed": 0,
+      "testsFailed": 0,
+      "totalTests": 0,
+      "isFailureAllowed": false,
+      "imageCommitStatusDate": "1970-01-01T00:00:00.000Z",
+      "deprovisionStatusDate": "1970-01-01T00:00:00.000Z",
+      "isSubscriptionHost": false,
+      "queuedDate": "2015-05-29T08:02:17.602Z",
+      "matrixValues": [
+        {
+          "name": "runtime",
+          "value": "1.3",
+          "_id": "55681d09041e890b00cc0cf1"
+        },
+        {
+          "name": "env",
+          "value": "",
+          "_id": "55681d09041e890b00cc0cf0"
+        }
+      ],
+      "isBuildCompleted": false,
+      "isCompleted": true,
+      "size": null
+    },
+    {
+      "commitTag": "master.7.3",
+      "buildNumber": 3,
+      "status": 20,
+      "version": "1.2",
+      "jdk": null,
+      "gemfile": null,
+      "environment": "",
+      "steps": {
+        "pull": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "build": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "upload": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        },
+        "commit": {
+          "report": [],
+          "endTime": null,
+          "duration": null,
+          "startTime": null
+        }
+      },
+      "_id": "55681d09041e890b00cc0cec",
+      "startDate": "2015-05-29T08:00:27.413Z",
+      "consoleLogLineCount": 85,
+      "consoleLogBytes": 4117,
+      "branchCoveragePercent": 0,
+      "sequenceCoveragePercent": 0,
+      "testsSkipped": 0,
+      "testsPassed": 0,
+      "testsFailed": 0,
+      "totalTests": 0,
+      "isFailureAllowed": false,
+      "imageCommitStatusDate": "1970-01-01T00:00:00.000Z",
+      "deprovisionStatusDate": "1970-01-01T00:00:00.000Z",
+      "isSubscriptionHost": false,
+      "queuedDate": "2015-05-29T08:02:17.601Z",
+      "matrixValues": [
+        {
+          "name": "runtime",
+          "value": "1.2",
+          "_id": "55681d09041e890b00cc0cee"
+        },
+        {
+          "name": "env",
+          "value": "",
+          "_id": "55681d09041e890b00cc0ced"
+        }
+      ],
+      "isBuildCompleted": false,
+      "isCompleted": false,
+      "size": null
+    }
+  ],
+  "buildItemStepOrder": [],
+  "requiresDedicatedHost": false,
+  "triggeredBy": {
+    "login": "pmoust",
+    "displayName": "Panagiotis Moustafellos",
+    "email": "",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/2493339?v=3"
+  },
+  "lastAuthor": {
+    "email": "pmoust@gmail.com",
+    "login": "pmoust",
+    "displayName": "Panagiotis Moustafellos",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/2493339?v=3"
+  },
+  "committer": {
+    "email": "pmoust@gmail.com",
+    "login": "pmoust",
+    "displayName": "Panagiotis Moustafellos",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/2493339?v=3"
+  },
+  "pullRequestNumber": null,
+  "emailNotifications": [],
+  "notifications": {
+    "irc": {
+      "notifyOnPullRequests": false,
+      "channels": []
+    }
+  },
+  "isCompleted": false,
+  "isPullRequest": false,
+  "isReRun": false,
+  "isAutoBuild": false,
+  "isAutoPush": false,
+  "isAutoCommit": false,
+  "id": "55681d037472310c00b37cc9"
+}
