@@ -34,8 +34,9 @@ type Client struct {
 	// Routes/entities used for talking to different parts of the Shippable API.
 	Projects *ProjectService
 	Builds   *BuildService
-	Docker   *DockerService
 	Users    *UserService
+	Docker   *DockerService
+	Workflow *WorkflowService
 }
 
 // Response is a Shippable API response. This wraps the standard http.Response
@@ -67,6 +68,7 @@ func NewClient(token string) (c *Client) {
 	c.Builds = &BuildService{client: c}
 	c.Users = &UserService{client: c}
 	c.Docker = &DockerService{client: c}
+	c.Workflow = &WorkflowService{client: c}
 
 	return
 }

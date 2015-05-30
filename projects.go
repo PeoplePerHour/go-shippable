@@ -87,26 +87,6 @@ func (p *ProjectService) GetRecentBuildsLimit(projectID string, limit int) (buil
 	return
 }
 
-// EnableBuilds enable builds for a given project
-func (c *Client) EnableBuilds(p *Project) (project *Project, err error) {
-	return &Project{}, nil
-}
-
-// DisableBuilds disables builds for a given project
-func (c *Client) DisableBuilds(p *Project) (project *Project, err error) {
-	return &Project{}, nil
-}
-
-// TriggerBuild triggers a build from a project's default branch
-func (c *Client) TriggerBuild(p *Project) (build *Build, err error) {
-	return &Build{}, nil
-}
-
-// TriggerBuildFrom triggers a build from a project's given branch
-func (c *Client) TriggerBuildFrom(p *Project, branch string) (build *Build, err error) {
-	return &Build{}, nil
-}
-
 type Project struct {
 	AutoBuild                             *bool            `json:"autoBuild"`
 	Branches                              *[]string        `json:"branches"`
