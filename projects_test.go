@@ -88,7 +88,7 @@ func TestGetRunningBuilds(t *testing.T) {
 	}
 
 	for _, build := range *builds {
-		if build.ProjectID != projId {
+		if *build.ProjectID != projId {
 			t.Errorf("Projects.GetRunningBuilds returned %s, wanted %s", build.ProjectID, projId)
 		}
 	}
@@ -109,7 +109,7 @@ func TestGetRecentBuilds(t *testing.T) {
 	}
 
 	for _, build := range *builds {
-		if build.ProjectID != projId {
+		if *build.ProjectID != projId {
 			t.Errorf("Projects.GetRecentBuilds returned %s, wanted %s", build.ProjectID, projId)
 		}
 	}
