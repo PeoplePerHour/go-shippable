@@ -65,7 +65,7 @@ func TestDisableBuild(t *testing.T) {
 	// TODO: Persuade Shippable guys to fix their API to return JSON...
 	// see: https://github.com/Shippable/support/issues/1489#issuecomment-107070182
 	if err != nil && err.Error() != "invalid character 'D' looking for beginning of value" {
-		t.Errorf("Workflow.EnableBuild returned error %v", err)
+		t.Errorf("Workflow.DisableBuild returned error %v", err)
 	}
 
 	if !ok {
