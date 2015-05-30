@@ -17,6 +17,8 @@ const (
 	defaultMediaType = "application/json"
 )
 
+// Client holds the client to Shippable API along with an authorization token and
+// pointers to each Shippable API service/endpoint.
 type Client struct {
 	// HTTP client used to communicate with the API.
 	client *http.Client
@@ -100,7 +102,8 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 		return nil, err
 	}
 
-	req.Header.Add("Accept", defaultMediaType)
+	req.Header.Add("Accept", "*/*")
+	req.Header.Add("Content-Type", defaultMediaType)
 	req.Header.Add("Authorization", "apiToken "+c.Token)
 	if c.UserAgent != "" {
 		req.Header.Add("User-Agent", c.UserAgent)
