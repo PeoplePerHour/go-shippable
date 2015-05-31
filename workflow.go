@@ -5,10 +5,16 @@ type ProjectInput struct {
 	ProjectID *string
 }
 
-// TriggerBuildInput
+// TriggerBuildInput is passed to WorkflowService in order to trigger a build for a project.
+// Omit branch to build the project's default branch.
 type TriggerBuildInput struct {
 	ProjectID *string
 	Branch    *string
+}
+
+// TriggerBuildOutput is returned after successfully triggered a build via Shippable API.
+type TriggerBuildOutput struct {
+	BuildID *string
 }
 
 // EnableBuild enable automatic builds for a given project.
@@ -41,13 +47,13 @@ func (w *WorkflowService) DisableBuild(p *ProjectInput) (ok bool, resp *Response
 // TriggerBuild triggers a build from a given project and branch. If no branch is
 // specified the default branch configured for the project in Github or Bitbucket
 // will be built.
-func (w *WorkflowService) TriggerBuild(t *TriggerBuildInput) (build *Build, resp *Response, err error) {
+func (w *WorkflowService) TriggerBuild(t *TriggerBuildInput) (build *TriggerBuildOutput, resp *Response, err error) {
 	url := "workflow/triggerBuild"
 	req, err := w.client.NewRequest("POST", url, t)
 	if err != nil {
 		return nil, nil, err
 	}
-	build = new(Build)
+	build = new(TriggerBuildOutput)
 	resp, err = w.client.Do(req, build)
 	return
 }

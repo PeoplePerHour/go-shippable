@@ -73,3 +73,35 @@ func TestDisableBuild(t *testing.T) {
 	}
 
 }
+
+func TestTriggerBuild(t *testing.T) {
+	setup()
+	defer teardown()
+
+	wantedProjID := "556734d0edd7f2c052ff35b4"
+	branch := "master"
+	expectedBuildID := "f00b4r"
+	triggerBuildInput := &TriggerBuildInput{
+		ProjectID: &wantedProjID,
+		Branch:    &branch,
+	}
+
+	mux.HandleFunc("/workflow/triggerBuild", func(w http.ResponseWriter, r *http.Request) {
+		req := new(TriggerBuildInput)
+		json.NewDecoder(r.Body).Decode(req)
+		if !reflect.DeepEqual(req, triggerBuildInput) {
+			t.Errorf("Request = %+v, wanted %+v", req, triggerBuildInput)
+		}
+		testMethod(t, r, "POST")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_post_workflow_triggerBuild.json")
+		fmt.Fprint(w, string(rawResponse))
+	})
+
+	b, _, err := client.Workflow.TriggerBuild(triggerBuildInput)
+	if err != nil {
+		t.Errorf("Workflow.TriggerBuild returned error %v", err)
+	}
+	if *b.BuildID != expectedBuildID {
+		t.Errorf("Expected ID '%s', got '%s'", expectedBuildID, *b.BuildID)
+	}
+}
