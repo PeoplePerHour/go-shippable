@@ -120,6 +120,14 @@ type BuildSettings struct {
 	RunCommand            *string `json:"runCommand"`
 }
 
+// Person holds info of a Shippable API user and/or Project contributor.
+type Person struct {
+	AvatarURL   *string `json:"avatarUrl"`
+	DisplayName *string `json:"displayName"`
+	Email       *string `json:"email"`
+	Login       *string `json:"login"`
+}
+
 type MatrixResult struct {
 	_id   *string `json:"_id"`
 	Name  *string `json:"name"`
