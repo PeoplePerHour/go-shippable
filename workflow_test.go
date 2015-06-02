@@ -105,3 +105,38 @@ func TestTriggerBuild(t *testing.T) {
 		t.Errorf("Expected ID '%s', got '%s'", expectedBuildID, *b.BuildID)
 	}
 }
+
+func TestValidateDockerHubCredentials(t *testing.T) {
+	setup()
+	defer teardown()
+
+	username := "username"
+	password := "password"
+	email := "username@example.com"
+	dockerHubCredentials := &DockerHubCredentials{
+		Username: &username,
+		Password: &password,
+		Email:    &email,
+	}
+
+	mux.HandleFunc("/workflow/validateDockerHubCredentials", func(w http.ResponseWriter, r *http.Request) {
+		req := new(DockerHubCredentials)
+		json.NewDecoder(r.Body).Decode(req)
+		if !reflect.DeepEqual(req, dockerHubCredentials) {
+			t.Errorf("Request = %+v, wanted %+v", req, dockerHubCredentials)
+		}
+		testMethod(t, r, "POST")
+		// Shippable API currently returns 500. Never seen a proper response. We 'll just test return 200
+		//rawResponse, _ := ioutil.ReadFile("./mocks/response_post_workflow_validateDockerHubCredentials.json")
+		//fmt.Fprint(w, string(rawResponse))
+		fmt.Fprint(w, "")
+	})
+
+	ok, _, err := client.Workflow.ValidateDockerHubCredentials(dockerHubCredentials)
+	if err != nil {
+		t.Errorf("Workflow.ValidateDockerHubCredentials returned error %v", err)
+	}
+	if !ok {
+		t.Errorf("Workflow.ValidateDockerHubCredentials should succeed")
+	}
+}
