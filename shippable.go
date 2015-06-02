@@ -37,7 +37,6 @@ type Client struct {
 	Projects *ProjectService
 	Builds   *BuildService
 	Users    *UserService
-	Docker   *DockerService
 	Workflow *WorkflowService
 }
 
@@ -69,7 +68,6 @@ func NewClient(token string) (c *Client) {
 	c.Projects = &ProjectService{client: c}
 	c.Builds = &BuildService{client: c}
 	c.Users = &UserService{client: c}
-	c.Docker = &DockerService{client: c}
 	c.Workflow = &WorkflowService{client: c}
 
 	return
