@@ -15,7 +15,3 @@ type UserService struct {
 type WorkflowService struct {
 	client *Client
 }
-
-type DockerService struct {
-	client *Client
-}
