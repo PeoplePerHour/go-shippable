@@ -17,6 +17,13 @@ type TriggerBuildOutput struct {
 	BuildID *string
 }
 
+// DockerHubCredentials is used to authenticated against DockerHub registry
+type DockerHubCredentials struct {
+	Username *string
+	Password *string
+	Email    *string
+}
+
 // EnableBuild enable automatic builds for a given project.
 func (w *WorkflowService) EnableBuild(p *ProjectInput) (project *Project, resp *Response, err error) {
 	url := "workflow/enableRepoBuild"
@@ -55,5 +62,23 @@ func (w *WorkflowService) TriggerBuild(t *TriggerBuildInput) (build *TriggerBuil
 	}
 	build = new(TriggerBuildOutput)
 	resp, err = w.client.Do(req, build)
+	return
+}
+
+// ValidateDockerHubCredentials verifies a DockerHub account for the authenticated Shippable API user.
+func (w *WorkflowService) ValidateDockerHubCredentials(c *DockerHubCredentials) (ok bool, resp *Response, err error) {
+	url := "workflow/validateDockerHubCredentials"
+	ok = false
+	req, err := w.client.NewRequest("POST", url, c)
+	if err != nil {
+		return false, nil, err
+	}
+	resp, err = w.client.Do(req, nil)
+	if err != nil {
+		return false, resp, err
+	}
+	if resp.StatusCode < 300 {
+		ok = true
+	}
 	return
 }
