@@ -8,7 +8,7 @@ type BuildService struct {
 	client *Client
 }
 
-type UserService struct {
+type AccountService struct {
 	client *Client
 }
 
