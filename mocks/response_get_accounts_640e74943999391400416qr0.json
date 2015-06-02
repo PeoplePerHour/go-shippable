@@ -1,0 +1,50 @@
+{
+  "id": "640e74943999391400416qr0",
+  "lastUsedIdentityId": "640e74943999391400416qr1",
+  "identities": [
+    {
+      "id": "640e74943999391400416qr1",
+      "scopes": [
+        "read:org",
+        "repo",
+        "user:email",
+        "write:repo_hook"
+      ],
+      "enforceScopes": [
+        "read:org",
+        "repo",
+        "user:email",
+        "write:repo_hook"
+      ],
+      "emails": [
+        {
+          "primary": true,
+          "verified": true,
+          "email": "user@gmail.com"
+        }
+      ],
+      "migratedProviderId": true,
+      "providerOwnedPrivateRepos": null,
+      "providerType": "User",
+      "providerId": "2054256",
+      "provider": "github",
+      "avatarId": "",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/RRR4256?v=3",
+      "displayName": "A user",
+      "userName": "user",
+      "email": "",
+      "providerBlog": "",
+      "providerCompany": "",
+      "providerLocation": "",
+      "providerFollowerCount": 3,
+      "providerPrivateGists": null,
+      "providerPublicRepoCount": 48,
+      "providerPublicGistCount": 2,
+      "providerTotalPrivateRepos": null
+    }
+  ],
+  "systemRoles": [
+    "user"
+  ],
+  "created": "2014-09-09T03:31:32.951Z"
+}

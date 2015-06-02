@@ -36,7 +36,7 @@ type Client struct {
 	// Routes/entities used for talking to different parts of the Shippable API.
 	Projects *ProjectService
 	Builds   *BuildService
-	Users    *UserService
+	Accounts *AccountService
 	Workflow *WorkflowService
 }
 
@@ -67,7 +67,7 @@ func NewClient(token string) (c *Client) {
 	}
 	c.Projects = &ProjectService{client: c}
 	c.Builds = &BuildService{client: c}
-	c.Users = &UserService{client: c}
+	c.Accounts = &AccountService{client: c}
 	c.Workflow = &WorkflowService{client: c}
 
 	return
