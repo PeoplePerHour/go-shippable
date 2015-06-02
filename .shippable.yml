@@ -11,6 +11,9 @@ go:
   - 1.3
   - 1.2
 
+env:
+    global:
+      - secure: eh8YyQg1IDsICduo4MR9FSVH7/GiUESE3Y0S0h0fqsCObxzJ/VcccA0YGxxbMRStwyPuDROzbPQsTghQLwuWXfVNiZnMqxVb/sE1D8bdMY9MjaJJjK2phHYbr0udZafh2A+rdHMXBtBKvMil4hk5M+3fgNMeiQDqPRbOMErIbpnpeLPzJMvOjZDoMNyi9QD1EiOIpyo8nyhRmmKI83SBCYAcDpNHqEJIwrjP242u0EUyomaEdyed2Nm0LjhGKwevrxLefrHF0UD+wvNdMAy/zYEoj/pe8JXZXxKalVBFfb/OhUnaUtjxlpBeCXcBndvsitSpZDKLMlEfumaej6AlGg==
 
 branches:
   only:
@@ -24,9 +27,11 @@ before_install:
   - export GOPATH=$SHIPPABLE_GOPATH
   - export PATH=$PATH:$GOPATH/bin
 
+before_script:
+  - go get golang.org/x/tools/cmd/cover
 
 script:
-  - go test -v
+  - go test -v -covermode=count -coverprofile=coverage.out
 
 after_script:
 
