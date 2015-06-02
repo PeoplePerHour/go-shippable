@@ -1,3 +1,4 @@
+// Package shippable is a library providing access to Shippable API.
 package shippable
 
 import (
