@@ -7,10 +7,7 @@ import (
 
 // GetProjects returns a list of projects, and some info about them
 func (p *ProjectService) GetProjects() (projects *[]Project, resp *Response, err error) {
-	req, err := p.client.NewRequest("GET", "projects", nil)
-	if err != nil {
-		return nil, nil, err
-	}
+	req, _ := p.client.NewRequest("GET", "projects", nil)
 	projects = new([]Project)
 	resp, err = p.client.Do(req, projects)
 	return

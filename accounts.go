@@ -2,10 +2,7 @@ package shippable
 
 // GetAccounts returns a string list of your Shippable account IDs.
 func (a *AccountService) GetAccounts() (accounts *[]string, resp *Response, err error) {
-	req, err := a.client.NewRequest("GET", "accounts", accounts)
-	if err != nil {
-		return nil, nil, err
-	}
+	req, _ := a.client.NewRequest("GET", "accounts", accounts)
 	accounts = new([]string)
 	resp, err = a.client.Do(req, accounts)
 	return

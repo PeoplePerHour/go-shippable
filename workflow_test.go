@@ -60,18 +60,49 @@ func TestDisableBuild(t *testing.T) {
 		fmt.Fprint(w, string(rawResponse))
 	})
 
-	ok, _, err := client.Workflow.DisableBuild(projectInput)
+	_, _, err := client.Workflow.DisableBuild(projectInput)
 	// omg, ugly
 	// TODO: Persuade Shippable guys to fix their API to return JSON...
 	// see: https://github.com/Shippable/support/issues/1489#issuecomment-107070182
 	if err != nil && err.Error() != "invalid character 'D' looking for beginning of value" {
 		t.Errorf("Workflow.DisableBuild returned error %v", err)
 	}
+}
 
-	if !ok {
-		t.Errorf("Workflow.DisableBuild should have returned 'ok'")
+func TestDisableBuild_Proper(t *testing.T) {
+	setup()
+	defer teardown()
+
+	wantedProjID := "556734d0edd7f2c052ff35b4"
+	projectInput := &ProjectInput{
+		ProjectID: &wantedProjID,
 	}
 
+	mux.HandleFunc("/workflow/disableBuild", func(w http.ResponseWriter, r *http.Request) {
+		req := new(ProjectInput)
+		json.NewDecoder(r.Body).Decode(req)
+		if !reflect.DeepEqual(req, projectInput) {
+			t.Errorf("Request = %+v, wanted %+v", req, projectInput)
+		}
+		testMethod(t, r, "POST")
+		fmt.Fprint(w, string("[]"))
+	})
+
+	ok, _, err := client.Workflow.DisableBuild(projectInput)
+	if err != nil {
+		t.Errorf("Workflow.DisableBuild returned error %v", err)
+	}
+	if !ok {
+		t.Errorf("Workflow.DisableBuild should have returned ok")
+	}
+}
+
+func TestDisableBuild_FailedRequest(t *testing.T) {
+
+	_, _, err := client.Workflow.DisableBuild(&ProjectInput{})
+	if err == nil {
+		t.Errorf("Workflow.DisableBuild should have returned error")
+	}
 }
 
 func TestTriggerBuild(t *testing.T) {
@@ -138,5 +169,15 @@ func TestValidateDockerHubCredentials(t *testing.T) {
 	}
 	if !ok {
 		t.Errorf("Workflow.ValidateDockerHubCredentials should succeed")
+	}
+}
+
+func TestValidateDockerHubCredentials_FailedRequest(t *testing.T) {
+	setup()
+	defer teardown()
+
+	ok, _, _ := client.Workflow.ValidateDockerHubCredentials(&DockerHubCredentials{})
+	if ok {
+		t.Errorf("Workflow.ValidateDockerHubCredentials should have failed")
 	}
 }
