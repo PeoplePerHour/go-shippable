@@ -3,7 +3,7 @@
 go-shippable is a Go client library for accessing the [Shippable API][].
 
 [![Build Status](https://api.shippable.com/projects/556734d0edd7f2c052ff35b4/badge?branchName=master)](https://app.shippable.com/projects/556734d0edd7f2c052ff35b4/builds/latest)
-[![Coverage Status](http://gocover.io/_badge/github.com/PeoplePerHour/go-shippable)](http://gocover.io/github.com/PeoplePerHour/go-shippable)
+[![Coverage Status](http://gocover.io/_badge/github.com/PeoplePerHour/go-shippable?upd=1)](http://gocover.io/github.com/PeoplePerHour/go-shippable)
 
 
 go-shippable requires Go version 1.1 or greater.
