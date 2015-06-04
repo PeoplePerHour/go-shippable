@@ -27,10 +27,7 @@ type DockerHubCredentials struct {
 // EnableBuild enable automatic builds for a given project.
 func (w *WorkflowService) EnableBuild(p *ProjectInput) (project *Project, resp *Response, err error) {
 	url := "workflow/enableRepoBuild"
-	req, err := w.client.NewRequest("POST", url, p)
-	if err != nil {
-		return nil, nil, err
-	}
+	req, _ := w.client.NewRequest("POST", url, p)
 	project = new(Project)
 	resp, err = w.client.Do(req, project)
 	return
@@ -40,12 +37,9 @@ func (w *WorkflowService) EnableBuild(p *ProjectInput) (project *Project, resp *
 // and its associated builds from Shippable.
 func (w *WorkflowService) DisableBuild(p *ProjectInput) (ok bool, resp *Response, err error) {
 	url := "workflow/disableBuild"
-	req, err := w.client.NewRequest("POST", url, p)
+	req, _ := w.client.NewRequest("POST", url, p)
+	resp, err = w.client.Do(req, nil)
 	if err != nil {
-		return false, nil, err
-	}
-	resp, err = w.client.Do(req, ok)
-	if resp.StatusCode > 299 {
 		return false, resp, err
 	}
 	return true, resp, err
@@ -57,9 +51,6 @@ func (w *WorkflowService) DisableBuild(p *ProjectInput) (ok bool, resp *Response
 func (w *WorkflowService) TriggerBuild(t *TriggerBuildInput) (build *TriggerBuildOutput, resp *Response, err error) {
 	url := "workflow/triggerBuild"
 	req, err := w.client.NewRequest("POST", url, t)
-	if err != nil {
-		return nil, nil, err
-	}
 	build = new(TriggerBuildOutput)
 	resp, err = w.client.Do(req, build)
 	return
@@ -69,10 +60,7 @@ func (w *WorkflowService) TriggerBuild(t *TriggerBuildInput) (build *TriggerBuil
 func (w *WorkflowService) ValidateDockerHubCredentials(c *DockerHubCredentials) (ok bool, resp *Response, err error) {
 	url := "workflow/validateDockerHubCredentials"
 	ok = false
-	req, err := w.client.NewRequest("POST", url, c)
-	if err != nil {
-		return false, nil, err
-	}
+	req, _ := w.client.NewRequest("POST", url, c)
 	resp, err = w.client.Do(req, nil)
 	if err != nil {
 		return false, resp, err

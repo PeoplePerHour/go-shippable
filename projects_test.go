@@ -175,3 +175,14 @@ func TestGetQueuedBuildsLimit(t *testing.T) {
 		t.Errorf("Projects.GetQueuedBuilds returned %d builds, expected %d", len(*builds), 0)
 	}
 }
+
+func TestProjectsURLParserErrors(t *testing.T) {
+	_, _, err := client.Projects.GetProject("%")
+	testURLParseError(t, err)
+	_, _, err = client.Projects.GetRunningBuildsLimit("%", 0)
+	testURLParseError(t, err)
+	_, _, err = client.Projects.GetQueuedBuildsLimit("%", 0)
+	testURLParseError(t, err)
+	_, _, err = client.Projects.GetRecentBuildsLimit("%", 0)
+	testURLParseError(t, err)
+}

@@ -97,3 +97,12 @@ func TestDeleteAccount(t *testing.T) {
 		t.Errorf("Accounts.DeleteAccount should return ok")
 	}
 }
+
+func TestAccountsURLParserErrors(t *testing.T) {
+	_, _, err := client.Accounts.DeleteAccount("%")
+	testURLParseError(t, err)
+	_, _, err = client.Accounts.GetAccount("%")
+	testURLParseError(t, err)
+	_, _, err = client.Accounts.GetAccountIdentities("%")
+	testURLParseError(t, err)
+}
