@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	version          = "0.1"
+	version          = "0.2"
 	userAgent        = "shippable-go/" + version
 	defaultEndpoint  = "https://api.shippable.com/"
 	defaultMediaType = "application/json"
@@ -123,7 +123,7 @@ func (c *Client) Do(req *http.Request, v interface{}) (*Response, error) {
 	response := newResponse(resp)
 
 	if response.StatusCode >= 300 {
-		return response, fmt.Errorf("Request: '%s' failed!", ToString(req))
+		return response, fmt.Errorf("request: '%s' failed", Stringify(req))
 	}
 
 	if v != nil {
