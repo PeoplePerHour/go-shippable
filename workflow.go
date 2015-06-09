@@ -1,6 +1,7 @@
 package shippable
 
-// ProjectInput
+// ProjectInput is passwd to WorkflowService to perform operations like enabling/disabling
+// automatic Builds
 type ProjectInput struct {
 	ProjectID *string
 }

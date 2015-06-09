@@ -23,23 +23,23 @@ func TestGetProjects(t *testing.T) {
 
 	wantedProjID := "5564844fedd7f2c052fbe82f"
 	project := (*projects)[0]
-	projId := *project.ID
-	if projId != wantedProjID {
-		t.Errorf("Projects.GetProjects returned %s, wanted %s", projId, wantedProjID)
+	projID := *project.ID
+	if projID != wantedProjID {
+		t.Errorf("Projects.GetProjects returned %s, wanted %s", projID, wantedProjID)
 	}
 }
 
 func TestGetProject(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId, func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID, func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + ".json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + ".json")
 		fmt.Fprint(w, string(rawResponse))
 	})
 
-	project, _, err := client.Projects.GetProject(projId)
+	project, _, err := client.Projects.GetProject(projID)
 	if err != nil {
 		t.Errorf("Projects.GetProject returned error %v", err)
 	}
@@ -49,26 +49,26 @@ func TestGetProject(t *testing.T) {
 		t.Errorf("Projects.GetProject returned %s, wanted %s", projectOwner, wantedProjectOwner)
 	}
 
-	if fetchedProjId := *project.ID; projId != fetchedProjId {
-		t.Errorf("Projects.GetProject returned %s, wanted %s", fetchedProjId, projId)
+	if fetchedProjID := *project.ID; projID != fetchedProjID {
+		t.Errorf("Projects.GetProject returned %s, wanted %s", fetchedProjID, projID)
 	}
 }
 
 func TestGetRunningBuildsLimit(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId+"/runningBuilds/5", func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID+"/runningBuilds/5", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + "_runningBuilds.json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + "_runningBuilds.json")
 		fmt.Fprint(w, string(rawResponse))
 	})
-	_, _, err := client.Projects.GetRunningBuildsLimit(projId, 666)
+	_, _, err := client.Projects.GetRunningBuildsLimit(projID, 666)
 	if err == nil {
 		t.Errorf("Projects.GetRunningBuildsLimit should have returned error")
 	}
 
-	_, _, err = client.Projects.GetRunningBuildsLimit(projId, 5)
+	_, _, err = client.Projects.GetRunningBuildsLimit(projID, 5)
 	if err != nil {
 		t.Errorf("Projects.GetRunningBuildsLimit should have returned error %v", err)
 	}
@@ -76,20 +76,20 @@ func TestGetRunningBuildsLimit(t *testing.T) {
 func TestGetRunningBuilds(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId+"/runningBuilds", func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID+"/runningBuilds", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + "_runningBuilds.json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + "_runningBuilds.json")
 		fmt.Fprint(w, string(rawResponse))
 	})
-	builds, _, err := client.Projects.GetRunningBuilds(projId)
+	builds, _, err := client.Projects.GetRunningBuilds(projID)
 	if err != nil {
 		t.Errorf("Projects.GetRunningBuilds returned error %v", err)
 	}
 
 	for _, build := range *builds {
-		if *build.ProjectID != projId {
-			t.Errorf("Projects.GetRunningBuilds returned %s, wanted %s", build.ProjectID, projId)
+		if *build.ProjectID != projID {
+			t.Errorf("Projects.GetRunningBuilds returned %s, wanted %s", build.ProjectID, projID)
 		}
 	}
 }
@@ -97,20 +97,20 @@ func TestGetRunningBuilds(t *testing.T) {
 func TestGetRecentBuilds(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId+"/recentBuilds", func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID+"/recentBuilds", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + "_recentBuilds.json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + "_recentBuilds.json")
 		fmt.Fprint(w, string(rawResponse))
 	})
-	builds, _, err := client.Projects.GetRecentBuilds(projId)
+	builds, _, err := client.Projects.GetRecentBuilds(projID)
 	if err != nil {
 		t.Errorf("Projects.GetRecentBuilds returned error %v", err)
 	}
 
 	for _, build := range *builds {
-		if *build.ProjectID != projId {
-			t.Errorf("Projects.GetRecentBuilds returned %s, wanted %s", build.ProjectID, projId)
+		if *build.ProjectID != projID {
+			t.Errorf("Projects.GetRecentBuilds returned %s, wanted %s", build.ProjectID, projID)
 		}
 	}
 }
@@ -118,18 +118,18 @@ func TestGetRecentBuilds(t *testing.T) {
 func TestGetRecentBuildsLimit(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId+"/recentBuilds/5", func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID+"/recentBuilds/5", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + "_recentBuilds.json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + "_recentBuilds.json")
 		fmt.Fprint(w, string(rawResponse))
 	})
-	_, _, err := client.Projects.GetRecentBuildsLimit(projId, 666)
+	_, _, err := client.Projects.GetRecentBuildsLimit(projID, 666)
 	if err == nil {
 		t.Errorf("Projects.GetRecentBuildsLimit should have returned error")
 	}
 
-	_, _, err = client.Projects.GetRecentBuildsLimit(projId, 5)
+	_, _, err = client.Projects.GetRecentBuildsLimit(projID, 5)
 	if err != nil {
 		t.Errorf("Projects.GetRecentBuildsLimit should have returned error %v", err)
 	}
@@ -138,13 +138,13 @@ func TestGetRecentBuildsLimit(t *testing.T) {
 func TestGetQueuedBuilds(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId+"/queuedBuilds", func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID+"/queuedBuilds", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + "_queuedBuilds.json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + "_queuedBuilds.json")
 		fmt.Fprint(w, string(rawResponse))
 	})
-	builds, _, err := client.Projects.GetQueuedBuilds(projId)
+	builds, _, err := client.Projects.GetQueuedBuilds(projID)
 	if err != nil {
 		t.Errorf("Projects.GetQueuedBuilds returned error %v", err)
 	}
@@ -156,18 +156,18 @@ func TestGetQueuedBuilds(t *testing.T) {
 func TestGetQueuedBuildsLimit(t *testing.T) {
 	setup()
 	defer teardown()
-	projId := "556734d0edd7f2c052ff35b4"
-	mux.HandleFunc("/projects/"+projId+"/queuedBuilds/5", func(w http.ResponseWriter, r *http.Request) {
+	projID := "556734d0edd7f2c052ff35b4"
+	mux.HandleFunc("/projects/"+projID+"/queuedBuilds/5", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projId + "_queuedBuilds.json")
+		rawResponse, _ := ioutil.ReadFile("./mocks/response_get_projects_" + projID + "_queuedBuilds.json")
 		fmt.Fprint(w, string(rawResponse))
 	})
-	_, _, err := client.Projects.GetQueuedBuildsLimit(projId, 666)
+	_, _, err := client.Projects.GetQueuedBuildsLimit(projID, 666)
 	if err == nil {
 		t.Errorf("Projects.GetQueuedBuildsLimit should have returned error")
 	}
 
-	builds, _, err := client.Projects.GetQueuedBuildsLimit(projId, 5)
+	builds, _, err := client.Projects.GetQueuedBuildsLimit(projID, 5)
 	if err != nil {
 		t.Errorf("Projects.GetQueuedBuildsLimit should have returned error %v", err)
 	}

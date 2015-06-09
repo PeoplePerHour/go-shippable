@@ -1,10 +1,12 @@
 package shippable
 
+// Notifications are used to pingback external services about the outcome of a build.
 type Notifications struct {
-	Irc IrcNotification `json:"irc"`
+	IRC IRCNotification `json:"irc"`
 }
 
-type IrcNotification struct {
+// IRCNotification is used to report the outcome of a build on IRC.
+type IRCNotification struct {
 	Channels             []interface{} `json:"channels"`
 	NotifyOnPullRequests bool          `json:"notifyOnPullRequests"`
 }
