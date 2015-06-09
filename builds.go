@@ -1,5 +1,6 @@
 package shippable
 
+// Build is the base structure of Shippable builds.
 type Build struct {
 	BaseCommitRef              *string        `json:"baseCommitRef"`
 	BeforeCommitSha            *string        `json:"beforeCommitSha"`
@@ -57,14 +58,16 @@ type Build struct {
 	UpdatedDate                *string        `json:"updatedDate"`
 }
 
+// BuildSteps structure holds the CI step sequence of Pull/Build/Commit/Upload/Report.
 type BuildSteps struct {
+	Pull   *BuildStep `json:"pull"`
 	Build  *BuildStep `json:"build"`
 	Commit *BuildStep `json:"commit"`
-	Pull   *BuildStep `json:"pull"`
-	Report *BuildStep `json:"report"`
 	Upload *BuildStep `json:"upload"`
+	Report *BuildStep `json:"report"`
 }
 
+// BaseBuild struct represents a unit of the Build matrix.
 type BaseBuild struct {
 	_id                     *string         `json:"_id"`
 	BranchCoveragePercent   *int            `json:"branchCoveragePercent"`
@@ -97,6 +100,7 @@ type BaseBuild struct {
 	Version                 *string         `json:"version"`
 }
 
+// BuildStep struct describes a CI step on Shippable.
 type BuildStep struct {
 	Duration  *int      `json:"duration"`
 	EndTime   *string   `json:"endTime"`
@@ -104,11 +108,13 @@ type BuildStep struct {
 	StartTime *string   `json:"startTime"`
 }
 
+// Report holds the datetime and status of a BuildStep.
 type Report struct {
 	Status *int    `json:"status"`
 	Time   *string `json:"time"`
 }
 
+// BuildSettings describe the attributes of a Build.
 type BuildSettings struct {
 	ImageID      *string `json:"imageId"`
 	ImageOptions *struct {
@@ -128,6 +134,7 @@ type Person struct {
 	Login       *string `json:"login"`
 }
 
+// MatrixResult represents the build results of the Build Matrix.
 type MatrixResult struct {
 	_id   *string `json:"_id"`
 	Name  *string `json:"name"`

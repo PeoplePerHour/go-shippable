@@ -46,6 +46,7 @@ func (a *AccountService) GetAccountIdentities(id string) (identities *[]string, 
 	return
 }
 
+// Account is the Shippable API user entity.
 type Account struct {
 	AccountAuthorizationLastSyncEndDate   *string     `json:"accountAuthorizationLastSyncEndDate"`
 	AccountAuthorizationLastSyncStartDate *string     `json:"accountAuthorizationLastSyncStartDate"`
@@ -59,6 +60,7 @@ type Account struct {
 	SystemRoles                           *[]string   `json:"systemRoles"`
 }
 
+// Identity of a Shippable API user with Providers like Github, BitBucket etc.
 type Identity struct {
 	AvatarID                  *string   `json:"avatarId"`
 	AvatarURL                 *string   `json:"avatarUrl"`
@@ -84,6 +86,7 @@ type Identity struct {
 	Username                  *string   `json:"userName"`
 }
 
+// Email of a Shippable API user.
 type Email struct {
 	Email    *string `json:"email"`
 	Primary  bool    `json:"primary"`

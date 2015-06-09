@@ -34,9 +34,9 @@ func TestEnableBuild(t *testing.T) {
 		t.Errorf("Workflow.EnableBuild returned error %v", err)
 	}
 
-	projId := *project.ID
-	if projId != wantedProjID {
-		t.Errorf("Workflow.EnableBuild returned %s, wanted %s", projId, wantedProjID)
+	projID := *project.ID
+	if projID != wantedProjID {
+		t.Errorf("Workflow.EnableBuild returned %s, wanted %s", projID, wantedProjID)
 	}
 }
 

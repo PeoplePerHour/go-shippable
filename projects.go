@@ -84,6 +84,7 @@ func (p *ProjectService) GetRecentBuildsLimit(projectID string, limit int) (buil
 	return
 }
 
+// Project used on Shippable API.
 type Project struct {
 	AutoBuild                             *bool            `json:"autoBuild"`
 	Branches                              *[]string        `json:"branches"`
@@ -120,20 +121,23 @@ type Project struct {
 	UpdatedDate                           *time.Time       `json:"updatedDate"`
 }
 
+// DeployKey is used for Project deployment.
 type DeployKey struct {
 	Public *string `json:"public"`
 }
 
+// ProjectSettings are the settings for a Project's Build.
 type ProjectSettings struct {
 	EnvironmentVariables *[]string `json:"environmentVariables"`
-	ImageOptions         *ImageOptions
+	ImageOptions         *imageOptions
 }
 
-type ImageOptions struct {
+type imageOptions struct {
 	Mounts *[]string `json:"mounts"`
 	Ports  *[]string `json:"ports"`
 }
 
+// GithubUser that generated a Shippable CI event.
 type GithubUser struct {
 	AvatarURL         *string `json:"avatar_url"`
 	EventsURL         *string `json:"events_url"`

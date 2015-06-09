@@ -4,7 +4,6 @@ package shippable
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -124,7 +123,7 @@ func (c *Client) Do(req *http.Request, v interface{}) (*Response, error) {
 	response := newResponse(resp)
 
 	if response.StatusCode >= 300 {
-		return response, errors.New(fmt.Sprintf("Request: '%s' failed!", ToString(req)))
+		return response, fmt.Errorf("Request: '%s' failed!", ToString(req))
 	}
 
 	if v != nil {
