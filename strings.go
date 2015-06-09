@@ -8,11 +8,11 @@ import (
 	"reflect"
 )
 
-// ToString attempts to create a reasonable string representation of types.
+// Stringify attempts to create a reasonable string representation of types.
 // It does things like resolve pointers to their values and omits struct fields with nil values.
 // This is taken from Stringify method of go-github.
 // License can be found at https://github.com/google/go-github/blob/master/LICENSE
-func ToString(anyStruct interface{}) string {
+func Stringify(anyStruct interface{}) string {
 	var buf bytes.Buffer
 	v := reflect.ValueOf(anyStruct)
 	stringifyValue(&buf, v)
