@@ -1,17 +1,6 @@
 package shippable
 
 import (
-	/*
-		"bytes"
-		"encoding/json"
-		"fmt"
-		"io/ioutil"
-		"os"
-		"path"
-		"reflect"
-		"strings"
-		"time"
-	*/
 	"net/http"
 	"net/http/httptest"
 	"net/url"
