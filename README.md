@@ -34,10 +34,12 @@ For complete usage of go-shippable, see the full [package docs][].
 ## Roadmap ##
 
 This library is being initially developed for a DevOps CI/CD internal application at
-[PeoplePerHour][] and [SuperTasker][], so features 
-are implemented as needed by those projects.
+[PeoplePerHour][] and [SuperTasker][]
 
 Contributions are more than welcomed. PRs bundled with tests will get merged ASAP.
+
+*Note:* We are looking for someone to maintain the project, as we no longer actively
+using it. Ping us at devops at peopleperhour.com
 
 [PeoplePerHour]: https://www.peopleperhour.com
 [SuperTasker]: https://www.supertasker.com
